@@ -75,6 +75,7 @@ const App: React.FC = () => {
           >
             <h2>{card.title}</h2>
             {activeCard === card.id && <p>{card.content}</p>}
+            {activeCard === card.id && <a className="sign">signed by hungry nigerians</a>}
           </div>
         ))}
     </div>
