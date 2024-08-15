@@ -1,10 +1,45 @@
-import { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import './App.css'
+import { gsap } from 'gsap';
 
-function App() {
-  const [count, setCount] = useState(0)
+interface Card {
+  id: number;
+  title: string;
+  content: string;
+  color: string;
+}
 
-  return (
+const cardData: Card[] = [
+  { id: 1, title: "DEAR MR PRESIDENT", content: "This letter is written specifically for you. I look at the prices of things, everything is extremely expensive for the common man to afford. A lot of things are expensive. People can hardly afford basic meal, even accomodation is expensive. Students can't even afford education. Things have become harder, nothing seems right, we urge you to look into this", color: "#FFA500" },
+  { id: 2, title: "DEAR PRESIDENT TINUBU", content: "I'm a Nigerian citizen, we are suffering. Think about the common man, we can't even afford food.", color: "#FFD700" },
+  { id: 3, title: "DEAR TINUBU", content: "I hope this get to you well, and I hope you see and understand that things are currently hard for the people.", color: "#FFC0CB" },
+  { id: 4, title: "DEAR TINUBU", content: "I hope this...", color: "#FF6347" },
+  { id: 5, title: "THIS IS", content: "Price of...", color: "#800080" },
+];
 
+const App: React.FC = () => {
+  const [activeCard, setActiveCard] = useState<number | null>(null);
+  const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
 
-export default App
+  useEffect(() => {
+    // cardsRef.current.forEach((card, index) => {
+    //   if (card) {
+    //     card.addEventListener("click", () => {
+    //       if (activeCard === index) {
+    //         setActiveCard(null);
+    //       } else {
+    //         setActiveCard(index);
+    //       }
+    //     });
+    //   }
+
+    cardsRef.current.forEach((card, index)) => {
+      if (card) {
+        gsap.set(card, {
+          rotation: Math.random() * 10 -5,
+          x: Math.random() * 20 -10,
+          y: index * 10,
+        });
+      }
+    });
+  }, []);
