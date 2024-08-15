@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Teko:wght@300..700&display=swap');
 
 * {
   margin: 0;
@@ -17,7 +18,8 @@
   justify-content: center;
   padding: 20px;
   background-color: #faffe4;
-  font-family: Inter, sans-serif;
+  font-family: "Teko", sans-serif;
+  font-optical-sizing: auto;
 }
 
 .title {
@@ -62,7 +64,7 @@
 }
 
 .card p {
-  font-size: 0.8rem;
+  font-size: 1rem;
   line-height: 1.4;
 }
 
