@@ -18,7 +18,6 @@
   padding: 20px;
   background-color: #faffe4;
   font-family: Inter, sans-serif;
-  flex-wrap: wrap;
 }
 
 .title {
@@ -34,15 +33,21 @@
   width: 100%;
   max-width: 600px;
   height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .card {
   position: relative;
-  width: 100%;
+  width: 80%;
+  max-width: 400px;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: box-shadow 0.3s ease;
+  /* transition: box-shadow 0.3s ease; */
+  transition: all 0.2s ease;
+  margin-bottom: 5px;
   overflow: hidden;
 }
 
@@ -53,10 +58,11 @@
 .card h2 {
   font-size: 1.2rem;
   margin-bottom: 10px;
+  font-weight: 600;
 }
 
 .card p {
-  font-size: 1rem;
+  font-size: 0.8rem;
   line-height: 1.4;
 }
 
@@ -65,7 +71,12 @@
   margin-top: 1rem;
   text-align: center;
   text-transform: uppercase;
-  text-weight: bold;
+  line-height: 1.2;
   font-family: 'Inter', sans-serif;
   font-weight: 800;
+}
+@media (max-width: 600px) {
+  .card {
+    width: 90%;
+  }
 }

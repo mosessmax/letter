@@ -11,10 +11,10 @@ interface Card {
 
 const cardData: Card[] = [
   { id: 1, title: "DEAR MR PRESIDENT", content: "This letter is written specifically for you. I look at the prices of things, everything is extremely expensive for the common man to afford. A lot of things are expensive. People can hardly afford basic meal, even accomodation is expensive. Students can't even afford education. Things have become harder, nothing seems right, we urge you to look into this", color: "#FFA500" },
-  { id: 2, title: "DEAR PRESIDENT TINUBU", content: "I'm a Nigerian citizen, we are suffering. Think about the common man, we can't even afford food.", color: "#FFD700" },
+  { id: 2, title: "DEAR PRESIDENT TINUBU", content: "This letter is written specifically for you. I look at the prices of things, everything is extremely expensive for the common man to afford. A lot of things are expensive. People can hardly afford basic meal, even accomodation is expensive. Students can't even afford education. Things have become harder, nothing seems right, we urge you to look into this", color: "#FFD700" },
   { id: 3, title: "DEAR TINUBU", content: "I hope this get to you well, and I hope you see and understand that things are currently hard for the people.", color: "#FFC0CB" },
-  { id: 4, title: "DEAR TINUBU", content: "I hope this...", color: "#FF6347" },
-  { id: 5, title: "THIS IS", content: "Price of...", color: "#800080" },
+  { id: 4, title: "DEAR BAT", content: "This letter is written specifically for you. I look at the prices of things, everything is extremely expensive for the common man to afford. A lot of things are expensive. People can hardly afford basic meal, even accomodation is expensive. Students can't even afford education. Things have become harder, nothing seems right, we urge you to look into this.", color: "#FF6347" },
+  { id: 5, title: "THIS IS", content: "Price of garri don go up, can't even make or warm eba, batboy please do something", color: "#9ff09d" },
 ];
 
 const App: React.FC = () => {
@@ -39,6 +39,7 @@ const App: React.FC = () => {
           rotation: Math.random() * 10 -5,
           x: Math.random() * 20 -10,
           y: index * 10,
+          zIndex: cardData.length - index,
         });
       }
     });
@@ -54,8 +55,8 @@ const App: React.FC = () => {
           rotation: id === cardData[index].id ? 0 : Math.random() * 10 - 5,
           x: id === cardData[index].id ? 0 : Math.random() * 20 - 10,
           y: id === cardData[index].id ? 0 : index * 10,
-          duration: 0.5,
-          ease: "power2.out",
+          duration: 0.3,
+          ease: "power3.out",
         });
       }
     });
