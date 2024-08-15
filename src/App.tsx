@@ -33,7 +33,7 @@ const App: React.FC = () => {
     //     });
     //   }
 
-    cardsRef.current.forEach((card, index)) => {
+    cardsRef.current.forEach((card, index) => {
       if (card) {
         gsap.set(card, {
           rotation: Math.random() * 10 -5,
@@ -43,3 +43,43 @@ const App: React.FC = () => {
       }
     });
   }, []);
+
+  const handleCardClick = (id: number) => {
+    setActiveCard(id);
+    cardsRef.current.forEach((card, index) => {
+      if (card) {
+        gsap.to(card, {
+          zIndex: cardData.length - index,
+          scale: id === cardData[index].id ? 1.05 : 1, /*## - 1 ? 1.1 : 1, */
+          rotation: id === cardData[index].id ? 0 : Math.random() * 10 - 5,
+          x: id === cardData[index].id ? 0 : Math.random() * 20 - 10,
+          y: id === cardData[index].id ? 0 : index * 10,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      }
+    });
+  };
+
+  return (
+    <div className="app">
+      <h1 className="title">A LETTER TO THE PRESIDENT</h1>
+      <div className="cards">
+        {cardData.map((card) => (
+          <div
+            key={card.id}
+            ref={(element) => (cardsRef.current[card.id - 1] = element)}
+            className="card"
+            style={{ backgroundColor: card.color }}
+            onClick={() => handleCardClick(card.id)}
+          >
+            <h2>{card.title}</h2>
+            {activeCard === card.id && <p>{card.content}</p>}
+          </div>
+        ))}
+    </div>
+    </div>
+  );
+};
+
+export default App;
